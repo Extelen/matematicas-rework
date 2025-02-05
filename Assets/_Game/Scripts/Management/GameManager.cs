@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
 
         CurrentState = state;
         OnStateSwitch?.Invoke(state);
+        Debug.Log($"Switched to {state} state.");
     }
 
     // Delegate

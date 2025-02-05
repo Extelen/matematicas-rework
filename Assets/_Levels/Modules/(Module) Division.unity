@@ -375,7 +375,7 @@ MonoBehaviour:
   m_keyboardBehaviour: {fileID: 1093075207}
   m_divisionRange:
     min: 1
-    max: 5
+    max: 6
 --- !u!1 &869815110
 GameObject:
   m_ObjectHideFlags: 0

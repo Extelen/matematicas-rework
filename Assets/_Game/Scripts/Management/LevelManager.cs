@@ -16,11 +16,14 @@ public class LevelManager : Singleton<LevelManager>
     [Header("References")]
     [SerializeField]
     private LoadingScreen m_additiveLoadingScreen;
+    [SerializeField]
+    private TimeController timeController;
 
     private SceneReference m_lastModule;
     private SceneReference m_currentModule;
 
     private int m_debugModuleBuildIndex = -1;
+    private int m_modulesCompleted = 0;
 
     // Methods
     protected virtual void Start()
@@ -110,6 +113,9 @@ public class LevelManager : Singleton<LevelManager>
         }
 
         StartCoroutine(DoAdditiveLoad(ExecuteModule));
+
+        if (m_modulesCompleted == 0)
+            StartGameTimer();
     }
 
     /// <summary>
@@ -119,6 +125,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         if (m_debugModuleBuildIndex == -1)
         {
+            m_modulesCompleted++;
             m_lastModule = m_currentModule;
             ChooseModule();
         }
@@ -128,6 +135,11 @@ public class LevelManager : Singleton<LevelManager>
 
         // else
         PlayModule();
+    }
+
+    private void StartGameTimer()
+    {
+        timeController.StartTimer();
     }
 
     // Coroutines
