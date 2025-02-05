@@ -53,7 +53,11 @@ public abstract class CommonMathGameplay : GameplayBehaviour
     public void OnStringChange(string str)
     {
         if (string.IsNullOrEmpty(str))
+        {
+            m_currentNumber = -1;
+            m_answerRenderer.text = "X";
             return;
+        }
 
         m_currentNumber = int.Parse(str);
         m_answerRenderer.text = str;
