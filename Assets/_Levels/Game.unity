@@ -2030,10 +2030,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1dcc9c317a78941854bbec97a4679d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_debugInitialModule: -1
   m_modules:
   - asset: {fileID: 102900000, guid: 34d892578cea6a5419d15ea29c162708, type: 3}
     guid: 34d892578cea6a5419d15ea29c162708
+  - asset: {fileID: 102900000, guid: 11d9632af5f772b4382fd8aa9df73117, type: 3}
+    guid: 11d9632af5f772b4382fd8aa9df73117
+  - asset: {fileID: 102900000, guid: fb12083979d0f444e9435bd448682275, type: 3}
+    guid: fb12083979d0f444e9435bd448682275
+  - asset: {fileID: 102900000, guid: 832ce6e79b83bb947855c0f192d275d7, type: 3}
+    guid: 832ce6e79b83bb947855c0f192d275d7
   m_additiveLoadingScreen: {fileID: 3542305983590990479}
 --- !u!1 &1898711567
 GameObject:

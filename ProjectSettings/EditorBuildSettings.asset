@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Levels/Modules/(Module) Addition.unity
     guid: 34d892578cea6a5419d15ea29c162708
+  - enabled: 1
+    path: Assets/_Levels/Modules/(Module) Subtraction.unity
+    guid: 11d9632af5f772b4382fd8aa9df73117
+  - enabled: 1
+    path: Assets/_Levels/Modules/(Module) Multiplication.unity
+    guid: fb12083979d0f444e9435bd448682275
+  - enabled: 1
+    path: Assets/_Levels/Modules/(Module) Division.unity
+    guid: 832ce6e79b83bb947855c0f192d275d7
   m_configObjects: {}
