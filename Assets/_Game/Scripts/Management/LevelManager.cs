@@ -5,6 +5,7 @@ using Eflatun.SceneReference;
 
 using UnityScene = UnityEngine.SceneManagement.Scene;
 using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class LevelManager : Singleton<LevelManager>
 {
@@ -99,7 +100,8 @@ public class LevelManager : Singleton<LevelManager>
 
     public void EndLevel()
     {
-        UIManager.Instance.SwitchPanel("Victory");
+        UIManager.Instance.SwitchPanel("Game Over");
+        StartCoroutine(UnloadCurrentModule());
     }
 
     /// <summary>
@@ -126,6 +128,8 @@ public class LevelManager : Singleton<LevelManager>
         if (m_debugModuleBuildIndex == -1)
         {
             m_modulesCompleted++;
+            DifficultyRating moduleDifficulty = ModuleBehaviour.Current.DifficultyRating;
+            ScoreBehaviour.Instance.AddScore(DifficultyScore.GetScore(moduleDifficulty));
             m_lastModule = m_currentModule;
             ChooseModule();
         }
@@ -185,6 +189,32 @@ public class LevelManager : Singleton<LevelManager>
         // Trigger the end event
         onEnd?.Invoke();
         // }
+    }
+
+    private IEnumerator UnloadCurrentModule()
+    {
+        // Show the loading screen
+        //yield return m_additiveLoadingScreen.Show();
+
+        if (m_debugModuleBuildIndex != -1)
+            yield return StartCoroutine(UnloadDebugScene());
+        else
+        {
+            // Unload
+            if (m_currentModule != null)
+            {
+                AsyncOperation asyncOperation = UnitySceneManager.UnloadSceneAsync(m_currentModule.BuildIndex);
+
+                while (!asyncOperation.isDone)
+                    yield return null;
+            }
+        }
+
+        //yield return new WaitForSeconds(0.1f);
+
+        //yield return m_additiveLoadingScreen.Hide();
+
+        m_currentModule = null;
     }
 
     private IEnumerator UnloadDebugScene()

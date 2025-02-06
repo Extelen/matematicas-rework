@@ -13,6 +13,11 @@ public class ModuleBehaviour : MonoBehaviour
     [SerializeField]
     private GameplayBehaviour m_moduleElement;
 
+    [SerializeField]
+    private DifficultyRating difficultyRating = DifficultyRating.Easy;
+
+    public DifficultyRating DifficultyRating => difficultyRating;
+
     // Methods
     /// <summary>
     /// Awake is called when the script instance is being loaded.
