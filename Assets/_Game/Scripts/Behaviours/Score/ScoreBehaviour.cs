@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ScoreBehaviour : Singleton<ScoreBehaviour>
 {
+    public ScoreboardBehaviour scoreboard;
+
     public int score = 0;
     public event Action<int> OnScoreChange;
 
@@ -29,5 +31,18 @@ public class ScoreBehaviour : Singleton<ScoreBehaviour>
     public int GetScore()
     {
         return score;
+    }
+
+    private void OnEnable() => GameManager.OnStateSwitch += OnStateSwitch;
+    private void OnDisable() => GameManager.OnStateSwitch -= OnStateSwitch;
+
+    private void OnStateSwitch(GameState state)
+    {
+        if (state == GameState.GameOver)
+        {
+            scoreboard.AddScoreEntry("DEV", score);
+            scoreboard.UpdateScoreboard();
+        }
+        
     }
 }

@@ -21,7 +21,6 @@ public class TimeController : MonoBehaviour
     private void EndTimer()
     {
         OnTimerEnd?.Invoke();
-        GameManager.SwitchState(GameState.GameOver);
         LevelManager.Instance.EndLevel();
         Debug.Log("Time up!");
     }

@@ -100,7 +100,11 @@ public class LevelManager : Singleton<LevelManager>
 
     public void EndLevel()
     {
+        GameManager.SwitchState(GameState.GameOver);
+
+        //Not sure about the levelmanager handling the UI but whatever
         UIManager.Instance.SwitchPanel("Game Over");
+
         StartCoroutine(UnloadCurrentModule());
     }
 
