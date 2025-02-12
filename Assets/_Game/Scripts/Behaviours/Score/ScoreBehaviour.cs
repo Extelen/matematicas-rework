@@ -40,8 +40,17 @@ public class ScoreBehaviour : Singleton<ScoreBehaviour>
     {
         if (state == GameState.GameOver)
         {
-            scoreboard.AddScoreEntry("DEV", score);
-            scoreboard.UpdateScoreboard();
+            if (scoreboard.IsScoreQualifying(score))
+            {
+                scoreboard.submitScoreButton.SetActive(true);
+                scoreboard.AddScoreEntry("DEV", score, true);
+                scoreboard.UpdateScoreboard();
+            }
+            else
+            {
+                scoreboard.submitScoreButton.SetActive(false);
+                scoreboard.UpdateScoreboard();
+            }
         }
         
     }
