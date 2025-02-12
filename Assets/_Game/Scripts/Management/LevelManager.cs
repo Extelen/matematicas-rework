@@ -132,8 +132,6 @@ public class LevelManager : Singleton<LevelManager>
         if (m_debugModuleBuildIndex == -1)
         {
             m_modulesCompleted++;
-            DifficultyRating moduleDifficulty = ModuleBehaviour.Current.DifficultyRating;
-            ScoreBehaviour.Instance.AddScore(DifficultyScore.GetScore(moduleDifficulty));
             m_lastModule = m_currentModule;
             ChooseModule();
         }

@@ -7,10 +7,24 @@ public class GameData
 {
     // Variables
 
+    [SerializeField] private List<ScoreEntryData> m_scoreboardEntries;
+    public List<ScoreEntryData> ScoreboardEntries
+    {
+        get
+        {
+            return m_scoreboardEntries;
+        }
+        set
+        {
+            m_scoreboardEntries = value;
+        }
+    }
+
+
     // Constructor
     public GameData()
     {
-
+        m_scoreboardEntries = new List<ScoreEntryData>();
     }
 
     // Methods

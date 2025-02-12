@@ -3,15 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[System.Serializable]
-public class ScoreEntry
-{
-    public int rank;
-    public string name;
-    public int score;
-    public bool isInputEntry; // For the player to input their name
-}
-
 public class ScoreboardBehaviour : MonoBehaviour
 {
     public List<ScoreEntry> entries = new List<ScoreEntry>();
@@ -35,7 +26,14 @@ public class ScoreboardBehaviour : MonoBehaviour
         var sortedEntries = entries.OrderByDescending(e => e.score).ToList();
         int lowestQualifyingScore = sortedEntries[maxEntries - 1].score;
 
-        return newScore >= lowestQualifyingScore;
+        if (newScore > lowestQualifyingScore)
+            return true;
+
+        // New score is equal to the lowest qualifying score and there's space
+        if (newScore == lowestQualifyingScore && entries.Count < maxEntries)
+            return true;
+
+        return false;
     }
 
     public void AddScoreEntry(string playerName, int score, bool isPlayerEntry = false)
@@ -66,6 +64,8 @@ public class ScoreboardBehaviour : MonoBehaviour
             UpdateScoreboard();
 
             submitScoreButton.SetActive(false);
+
+            SaveScoreboardData();
         }
     }
 
@@ -96,5 +96,24 @@ public class ScoreboardBehaviour : MonoBehaviour
                 playerScoreEntryUI = newEntryObject.GetComponent<ScoreEntryInputUI>();
             }
         }
+    }
+
+    public void SaveScoreboardData()
+    {
+        Data.Game.ScoreboardEntries = entries.Select(e => new ScoreEntryData { name = e.name, score = e.score }).ToList();
+        Data.Save();
+    }
+
+    public void LoadScoreboardData()
+    {
+        entries = Data.Game.ScoreboardEntries.Select(e => new ScoreEntry { name = e.name, score = e.score }).ToList();
+        UpdateScoreboard();
+    }
+
+    [ContextMenu("Delete Scoreboard Data")]
+    public void DeleteScoreboardData()
+    {
+        entries.Clear();
+        SaveScoreboardData();
     }
 }

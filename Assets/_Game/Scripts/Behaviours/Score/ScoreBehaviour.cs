@@ -40,6 +40,7 @@ public class ScoreBehaviour : Singleton<ScoreBehaviour>
     {
         if (state == GameState.GameOver)
         {
+            scoreboard.LoadScoreboardData();
             if (scoreboard.IsScoreQualifying(score))
             {
                 scoreboard.submitScoreButton.SetActive(true);

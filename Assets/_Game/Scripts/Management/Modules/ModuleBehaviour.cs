@@ -43,6 +43,10 @@ public class ModuleBehaviour : MonoBehaviour
 
     public void End()
     {
+        ScoreBehaviour.Instance.AddScore(DifficultyScore.GetScore(difficultyRating));
+
+        if (GameManager.CurrentState == GameState.GameOver)
+            return;
         LevelManager.Instance.NextModule();
     }
 }
