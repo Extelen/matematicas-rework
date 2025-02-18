@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///  The usage of this pool system is, 
-///  create a variable in the spawner with the class in the generic,        private Pool<EnemyBehaviour> enemyPool;
-///  initialize before the usage, ex, in the start or awake,                enemyPool.Create();
-///  get a pooled object using Get.                                         var instance = enemyPool.Get();
+/// Usage of this pool system:
+/// 1. Declare a variable in the spawner with the class in the generic type:
+///    private Pool<EnemyBehaviour> enemyPool;
+/// 2. Initialize the pool before usage, for example, in the Start or Awake method:
+///    enemyPool.Create();
+/// 3. Retrieve a pooled object using the Get method:
+///    var instance = enemyPool.Get();
 /// </summary>
 [System.Serializable]
 public class Pool<T> where T : Component

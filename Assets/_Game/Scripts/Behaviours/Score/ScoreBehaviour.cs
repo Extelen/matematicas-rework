@@ -7,30 +7,39 @@ public class ScoreBehaviour : Singleton<ScoreBehaviour>
 {
     public ScoreboardBehaviour scoreboard;
 
-    public int score = 0;
+    private int score = 0;
+    private int combo = 0; // Modules completed without making mistakes  TO DO: Show in UI
+    private int comboScoreAddition = 10; // Score added for each combo
+    private int maxComboMultiplier = 2;
+
     public event Action<int> OnScoreChange;
+    public event Action<int> OnComboChange;
+
 
     public void AddScore(int value)
     {
-        score += value;
-        OnScoreChange?.Invoke(score);
+        int comboMultiplier = Mathf.Min(combo, maxComboMultiplier);
+        UpdateScore(score + value + (comboScoreAddition * comboMultiplier));
     }
 
-    public void ResetScore()
-    {
-        score = 0;
-        OnScoreChange?.Invoke(score);
-    }
+    public void ResetScore() => UpdateScore(0);
+    public void SetScore(int value) => UpdateScore(value);
+    public int GetScore() => score;
 
-    public void SetScore(int value)
+    private void UpdateScore(int value)
     {
         score = value;
         OnScoreChange?.Invoke(score);
     }
 
-    public int GetScore()
+    public void AddCombo() => UpdateCombo(combo + 1);
+    public void ResetCombo() => UpdateCombo(0);
+    public int GetCombo() => combo;
+
+    private void UpdateCombo(int value)
     {
-        return score;
+        combo = value;
+        OnComboChange?.Invoke(combo);
     }
 
     private void OnEnable() => GameManager.OnStateSwitch += OnStateSwitch;

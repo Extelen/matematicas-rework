@@ -67,6 +67,7 @@ public abstract class CommonMathGameplay : GameplayBehaviour
     {
         m_keyboardBehaviour.Clear();
         m_answerRenderer.text = "X";
+        ScoreBehaviour.Instance.ResetCombo();
     }
 
     public void Check()

@@ -44,6 +44,7 @@ public class ModuleBehaviour : MonoBehaviour
     public void End()
     {
         ScoreBehaviour.Instance.AddScore(DifficultyScore.GetScore(difficultyRating));
+        ScoreBehaviour.Instance.AddCombo();
 
         if (GameManager.CurrentState == GameState.GameOver)
             return;
