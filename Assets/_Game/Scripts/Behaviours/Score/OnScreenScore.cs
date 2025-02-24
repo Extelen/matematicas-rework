@@ -58,7 +58,7 @@ public class OnScreenScore : MonoBehaviour
         }
         
         float width = rectTransform.rect.width;
-        instance.PlayEffect(scoreDifference.ToString(), transform.position + effectOffset + new Vector3(width, 0, 0), intensity, 1f, 25f);
+        instance.PlayEffect(scoreDifference.ToString(), transform.position + effectOffset + new Vector3(width, 0, 0), intensity, 0.5f, 25f);
     }
 
     private void OnComboUpdate(int combo)

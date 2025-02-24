@@ -94,7 +94,7 @@ public class ScoreEffect : MonoBehaviour
     private void ShakeEffect(float duration, ComboIntensity intensity)
     {
         float strength = GetShakeStrengthForIntensity(intensity);
-        transform.DOShakePosition(duration, new Vector3(strength, strength, 0), 10, 90, false, true);
+        transform.DOShakePosition(duration, new Vector3(strength, strength, 0), 20, 90, false, true);
     }
 
     private float GetShakeStrengthForIntensity(ComboIntensity intensity)
@@ -104,9 +104,9 @@ public class ScoreEffect : MonoBehaviour
             case ComboIntensity.Low:
                 return 0;
             case ComboIntensity.Medium:
-                return 5f;
+                return 1f;
             case ComboIntensity.High:
-                return 10f;
+                return 4f;
             default:
                 return 0f;
         }

@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Levels/Modules/(Module) Division.unity
     guid: 832ce6e79b83bb947855c0f192d275d7
+  - enabled: 1
+    path: Assets/_Levels/Modules/(Module) Plus-Minus Symbol.unity
+    guid: e6e7de81da201144e90443d20b7f38f5
+  - enabled: 1
+    path: Assets/_Levels/Modules/(Module) Basic Symbol.unity
+    guid: 9fe55c383bbaca940bab86a882d745aa
   m_configObjects: {}

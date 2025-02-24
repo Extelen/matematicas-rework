@@ -38,7 +38,7 @@ public abstract class CommonMathGameplay : GameplayBehaviour
 
         m_leftNumberRenderer.text = LeftNumber.ToString();
         m_rightNumberRenderer.text = RightNumber.ToString();
-        m_answerRenderer.text = "X";
+        m_answerRenderer.text = "?";
     }
 
     public override void StartGame()
@@ -55,7 +55,7 @@ public abstract class CommonMathGameplay : GameplayBehaviour
         if (string.IsNullOrEmpty(str))
         {
             m_currentNumber = -1;
-            m_answerRenderer.text = "X";
+            m_answerRenderer.text = "?";
             return;
         }
 
@@ -63,21 +63,37 @@ public abstract class CommonMathGameplay : GameplayBehaviour
         m_answerRenderer.text = str;
     }
 
-    private void ResetAnswer()
+    public void ResetAnswer()
     {
         m_keyboardBehaviour.Clear();
-        m_answerRenderer.text = "X";
-        ScoreBehaviour.Instance.ResetCombo();
+        m_answerRenderer.text = "?";
     }
 
-    public void Check()
+    public override void CheckAnswer()
     {
-        bool correct = m_currentNumber == m_correctNumber;
-
-        if (correct)
-            ModuleBehaviour.End();
-
+        if (m_currentNumber == m_correctNumber)
+        {
+            Correct();
+        }
         else
-            ResetAnswer();
+        {
+            Wrong();
+        }
     }
+
+    public override void Correct()
+    {
+        ScoreBehaviour.Instance.AddScore(DifficultyScore.GetScore(ModuleBehaviour.DifficultyRating));
+        ScoreBehaviour.Instance.AddCombo();
+        ModuleBehaviour.End();
+    }
+
+    public override void Wrong()
+    {
+        ScoreBehaviour.Instance.ResetCombo();
+        ResetAnswer();
+    }
+
+    
+
 }

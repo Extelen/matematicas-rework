@@ -102,7 +102,14 @@ public class KeyboardBehaviour : MonoBehaviour
         if (character == '_')
             character = ' ';
 
-        Add(character);
+        if (MaxLength == 1 )
+        {
+            Set(character.ToString());
+        }else
+        {
+            Add(character);
+        }
+        
     }
 
     public void Clear()

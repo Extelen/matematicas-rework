@@ -1128,7 +1128,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1092605163433082216, guid: 69dcc2eec6f248e4dbb5225f1a7fb501, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1140699623336076320, guid: 69dcc2eec6f248e4dbb5225f1a7fb501, type: 3}
       propertyPath: m_Name
@@ -2806,14 +2806,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_modules:
-  - asset: {fileID: 102900000, guid: 34d892578cea6a5419d15ea29c162708, type: 3}
-    guid: 34d892578cea6a5419d15ea29c162708
-  - asset: {fileID: 102900000, guid: 11d9632af5f772b4382fd8aa9df73117, type: 3}
-    guid: 11d9632af5f772b4382fd8aa9df73117
-  - asset: {fileID: 102900000, guid: fb12083979d0f444e9435bd448682275, type: 3}
-    guid: fb12083979d0f444e9435bd448682275
-  - asset: {fileID: 102900000, guid: 832ce6e79b83bb947855c0f192d275d7, type: 3}
-    guid: 832ce6e79b83bb947855c0f192d275d7
+  - asset: {fileID: 102900000, guid: e6e7de81da201144e90443d20b7f38f5, type: 3}
+    guid: e6e7de81da201144e90443d20b7f38f5
   m_additiveLoadingScreen: {fileID: 3542305983590990479}
   timeController: {fileID: 1813037104}
 --- !u!114 &1813037104

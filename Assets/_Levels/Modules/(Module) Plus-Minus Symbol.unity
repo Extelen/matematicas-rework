@@ -244,8 +244,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 857148156}
-        m_TargetAssemblyTypeName: CommonMathGameplay, Assembly-CSharp
+      - m_Target: {fileID: 857148159}
+        m_TargetAssemblyTypeName: MissingOperatorsGameplay, Assembly-CSharp
         m_MethodName: CheckAnswer
         m_Mode: 1
         m_Arguments:
@@ -321,7 +321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 857148158}
   - component: {fileID: 857148157}
-  - component: {fileID: 857148156}
+  - component: {fileID: 857148159}
   m_Layer: 0
   m_Name: Module Behaviour
   m_TagString: Untagged
@@ -329,25 +329,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &857148156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857148155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79cdc3feca936854ea8f298a33ebf41a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_leftNumberRenderer: {fileID: 1080596948}
-  m_rightNumberRenderer: {fileID: 869815112}
-  m_answerRenderer: {fileID: 2131518818}
-  m_keyboardBehaviour: {fileID: 1093075207}
-  m_additionRange:
-    min: 0
-    max: 10
 --- !u!114 &857148157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bcf77a6f3c7d94d803c56664782bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moduleElement: {fileID: 857148156}
+  m_moduleElement: {fileID: 857148159}
   difficultyRating: 0
 --- !u!4 &857148158
 Transform:
@@ -377,6 +358,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &857148159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857148155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7004728461ff7114c88b776c708ca38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_leftNumberRenderer: {fileID: 1080596948}
+  m_symbolRenderer: {fileID: 1548996703}
+  m_rightNumberRenderer: {fileID: 869815112}
+  m_resultNumberRenderer: {fileID: 2131518818}
+  m_keyboardBehaviour: {fileID: 1093075207}
+  m_numberRange:
+    min: 0
+    max: 10
 --- !u!1 &869815110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,20 +1264,24 @@ PrefabInstance:
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5060119946525382510, guid: ce705035911ca0c419bf7405a102870a, type: 3}
       propertyPath: m_maxLength
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5060119946525382510, guid: ce705035911ca0c419bf7405a102870a, type: 3}
       propertyPath: m_characters
-      value: 1234567890$
+      value: +-
       objectReference: {fileID: 0}
     - target: {fileID: 5060119946525382510, guid: ce705035911ca0c419bf7405a102870a, type: 3}
       propertyPath: m_onStringChange.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5060119946525382510, guid: ce705035911ca0c419bf7405a102870a, type: 3}
+      propertyPath: m_onStringChange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060119946525382510, guid: ce705035911ca0c419bf7405a102870a, type: 3}
       propertyPath: m_onStringChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 857148156}
+      objectReference: {fileID: 857148159}
     - target: {fileID: 5060119946525382510, guid: ce705035911ca0c419bf7405a102870a, type: 3}
       propertyPath: m_onStringChange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1287,7 +1292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5060119946525382510, guid: ce705035911ca0c419bf7405a102870a, type: 3}
       propertyPath: m_onStringChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AdditiveGameplayBehaviour, Assembly-CSharp
+      value: MissingOperatorsGameplay, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5060119946525382510, guid: ce705035911ca0c419bf7405a102870a, type: 3}
       propertyPath: m_onStringChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1688,6 +1693,11 @@ PrefabInstance:
     - {fileID: 8414178009733768648, guid: ce705035911ca0c419bf7405a102870a, type: 3}
     - {fileID: 7695350577447725128, guid: ce705035911ca0c419bf7405a102870a, type: 3}
     - {fileID: 725965474447551931, guid: ce705035911ca0c419bf7405a102870a, type: 3}
+    - {fileID: 4762798910807562615, guid: ce705035911ca0c419bf7405a102870a, type: 3}
+    - {fileID: 160266643337261305, guid: ce705035911ca0c419bf7405a102870a, type: 3}
+    - {fileID: 5166527905094346476, guid: ce705035911ca0c419bf7405a102870a, type: 3}
+    - {fileID: 4101851425477287010, guid: ce705035911ca0c419bf7405a102870a, type: 3}
+    - {fileID: 6252741575015342914, guid: ce705035911ca0c419bf7405a102870a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce705035911ca0c419bf7405a102870a, type: 3}
@@ -1933,7 +1943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +
+  m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1942,8 +1952,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4285915647
+  m_fontColor: {r: 1, g: 0.8830609, b: 0.4575472, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2487,7 +2497,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '?'
+  m_text: X
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2496,8 +2506,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285915647
-  m_fontColor: {r: 1, g: 0.8830609, b: 0.4575472, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
