@@ -376,7 +376,7 @@ MonoBehaviour:
   m_resultNumberRenderer: {fileID: 2131518818}
   m_keyboardBehaviour: {fileID: 1093075207}
   m_numberRange:
-    min: 2
+    min: 1
     max: 10
 --- !u!1 &869815110
 GameObject:
