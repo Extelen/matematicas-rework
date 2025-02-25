@@ -161,7 +161,7 @@ public class LevelManager : Singleton<LevelManager>
         AsyncOperation asyncOperation;
 
         // Show the loading screen
-        yield return m_additiveLoadingScreen.Show();
+        //yield return m_additiveLoadingScreen.Show();
 
         if (m_debugModuleBuildIndex != -1)
             yield return StartCoroutine(UnloadDebugScene());

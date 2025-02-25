@@ -8,7 +8,8 @@ public class OnScreenScore : MonoBehaviour
     private TextMeshProUGUI m_renderer;
     private RectTransform rectTransform;
 
-    public Pool<ScoreEffect> scoreEffectPool;
+    [HideInInspector] public Pool<ScoreEffect> scoreEffectPool;
+    public float scoreEffectDuration = 1f;
     private Vector3 effectOffset = new Vector3(30, 0, 0);
 
     private int displayedScore = 0;
@@ -43,10 +44,9 @@ public class OnScreenScore : MonoBehaviour
         if (updateCoroutine != null)
             StopCoroutine(updateCoroutine);
 
-        
+        int scoreDifference = targetScore - displayedScore;
         updateCoroutine = StartCoroutine(AnimateScore(targetScore));
         var instance = scoreEffectPool.Get();
-        int scoreDifference = targetScore - displayedScore;
         ScoreEffect.ComboIntensity intensity = ScoreEffect.ComboIntensity.Low;
         if (currentCombo >= 1)
         {
@@ -58,7 +58,7 @@ public class OnScreenScore : MonoBehaviour
         }
         
         float width = rectTransform.rect.width;
-        instance.PlayEffect(scoreDifference.ToString(), transform.position + effectOffset + new Vector3(width, 0, 0), intensity, 0.5f, 25f);
+        instance.PlayEffect(scoreDifference.ToString(), transform.position + effectOffset + new Vector3(width, 0, 0), intensity, scoreEffectDuration, 25f);
     }
 
     private void OnComboUpdate(int combo)

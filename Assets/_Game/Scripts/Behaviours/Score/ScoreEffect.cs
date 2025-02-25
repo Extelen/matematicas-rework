@@ -42,7 +42,7 @@ public class ScoreEffect : MonoBehaviour
 
         // Play effect
         transform.DOMoveY(transform.position.y + floatDistance, duration);
-        ShakeEffect(0.5f, intensity);
+        //ShakeEffect(0.5f, intensity);
         numberText.DOFade(0, duration).OnComplete(() => gameObject.SetActive(false));
     }
 
