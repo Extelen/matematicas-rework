@@ -22,7 +22,7 @@ public class OnScreenScore : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
         m_renderer.text = displayedScore.ToString();
 

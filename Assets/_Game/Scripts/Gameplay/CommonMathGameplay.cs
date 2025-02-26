@@ -12,7 +12,7 @@ public abstract class CommonMathGameplay : GameplayBehaviour
     [SerializeField]
     private TMP_Text m_rightNumberRenderer;
     [SerializeField]
-    private TMP_Text m_answerRenderer;
+    private AnimatedTMP m_answerRenderer;
 
     [Space]
     [SerializeField]

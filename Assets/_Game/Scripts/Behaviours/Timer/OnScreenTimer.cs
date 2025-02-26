@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(TextMeshProUGUI))]
 public class OnScreenTimer : Singleton<OnScreenTimer>
 {
     // Variables
-    [Header("References")]
-    [SerializeField]
     private TextMeshProUGUI m_renderer;
 
     private Timer m_currentTimer;
@@ -16,6 +15,7 @@ public class OnScreenTimer : Singleton<OnScreenTimer>
     protected override void Awake()
     {
         base.Awake();
+        m_renderer = GetComponent<TextMeshProUGUI>();
         m_currentTimer = null;
         m_renderer.enabled = false;
     }
